@@ -27,14 +27,9 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
             `;
 
             transation_count++ 
+            i++
 
-        } else if ( i >= 9){
-
-       
-
-        }          
-        
-        i++
+        }             
 
     } 
 
@@ -55,17 +50,20 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
         column2.innerHTML = transactions[index].transaction;
         column3.innerHTML = transactions[index].amount;
         column4.innerHTML = transactions[index].date;
-        column5.innerHTML = transactions[index].status;    
+        column5.innerHTML = `<span class=${transactions[index.status] == "Success" ? 'text-green-600' : 'text-yellow-500'}"}>${transactions[index].status}</span>`;    
 
         index++
+        
+        
         } else{
+            transation_count++
             clearInterval(interval)
         }
+        
         }
     
         setInterval(addRow,10000)
-        transation_count++ 
-
+        
 
 output.innerHTML = data;
 counter.innerHTML = transation_count;
