@@ -17,18 +17,18 @@
 <div class="flex gap-3 justify-center">
 
 
-<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-lg shadow-xs hover:bg-neutral-secondary-medium">
+<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-lg shadow-md hover:bg-neutral-secondary-medium">
     <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Noteworthy technology acquisitions 2021</h5>
     <p class="text-body">Here are the biggest technology acquisitions of 2025 so far, in reverse chronological order.</p>
 </div>
    
-<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-lg shadow-xs hover:bg-neutral-secondary-medium">
+<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-lg shadow-md hover:bg-neutral-secondary-medium">
     <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Noteworthy technology acquisitions 2021</h5>
     <p class="text-body">Here are the biggest technology acquisitions of 2025 so far, in reverse chronological order.</p>
 </div>
 
     
-<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-lg shadow-xs hover:bg-neutral-secondary-medium">
+<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-lg shadow-md hover:bg-neutral-secondary-medium">
     <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Noteworthy technology acquisitions 2021</h5>
     <p class="text-body">Here are the biggest technology acquisitions of 2025 so far, in reverse chronological order.</p>
 </div>
@@ -36,9 +36,10 @@
 </div>
 
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg" >
- <div class="table-responsive">
-    <table class="table">
+<div class="max-w-2xl mx-auto p-10" >
+ <div class="bg-white rounded-lg shadow-lg border border-gray-200">
+ <div class="p-100">
+    <table class="w-full border">
         <thead>
           <tr>
             <th scope="col">Transaction Id</th>
@@ -48,7 +49,10 @@
             <th scope="col">Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="json-output">
+
+
+            <!-- 
           <tr>
             <th scope="row">1</th>
             <td>Netflix</td>
@@ -120,12 +124,14 @@
             <td>10-03-2026</td>
             <td>Pending</td>
           </tr>
+          -->
         </tbody>
       
     </table>
+</div>
  </div>
   </div>
-
+  <script src="script.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> 
 </body>
 </html>
