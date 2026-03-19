@@ -60,11 +60,20 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
         
         }
 
-        setInterval(() =>{
-            transation_count++
-            counter.innerHTML = transation_count;
-            addRow()
-        } , 10000);
+        
+          let addRowInterval = setInterval(() =>{
+                transation_count++
+                counter.innerHTML = transation_count;
+                addRow()
+
+            if(transation_count == transactions.length){
+                clearInterval(addRowInterval);
+            }
+
+            } , 10000);
+
+            
+    
         
 
         
