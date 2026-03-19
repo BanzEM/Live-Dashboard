@@ -16,11 +16,11 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
         if (i < 10){
             data += `   
             <tr>
-                <td>${product.id}</td>
-                <td>${product.transaction}</td>
-                <td>${product.amount}</td>
-                <td>${product.date}</td>
-                <td >
+                <td class="py-1 px-4">${product.id}</td>
+                <td class="py-1 px-4">${product.transaction}</td>
+                <td class="py-1 px-4">${product.amount}</td>
+                <td class="py-1 px-4">${product.date}</td>
+                <td  class="py-1 px-4">
                 <span class="${product.status == "Success" ? 'text-green-600' : 'text-yellow-500'}"> ${product.status} </span>
                 </td>
             </tr>
@@ -28,7 +28,6 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
 
             transation_count++ 
             i++
-
         }             
 
     } 
@@ -46,25 +45,28 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
         var column4 = row.insertCell(3);
         var column5 = row.insertCell(4);
         
-        column1.innerHTML = transactions[index].id;
-        column2.innerHTML = transactions[index].transaction;
-        column3.innerHTML = transactions[index].amount;
-        column4.innerHTML = transactions[index].date;
-        column5.innerHTML = ` <span class="${transactions[index].status == "Success" ? 'text-green-600' : 'text-yellow-500'}"> ${transactions[index].status}</span>`;    
-
-       
+        column1.innerHTML = `<span class="py-8 px-4">${transactions[index].id}</span>`;
+        column2.innerHTML = `<span class="py-8 px-4">${transactions[index].transaction}</span>`;
+        column3.innerHTML = `<span class="py-8 px-4">${transactions[index].amount}</span>`;
+        column4.innerHTML = `<span class="py-8 px-4">${transactions[index].date}</span>`;
+        column5.innerHTML = ` <span class="${transactions[index].status == "Success" ? 'text-green-600' : 'text-yellow-500'}  py-8 px-4"> ${transactions[index].status}</span>`;    
 
         index++
         
-        
         } else{
-            transation_count++
+            
             clearInterval(interval)
         }
         
         }
-    
-        setInterval(addRow,10000)
+
+        setInterval(() =>{
+            transation_count++
+            counter.innerHTML = transation_count;
+            addRow()
+        } , 10000);
+        
+
         
 
 output.innerHTML = data;
