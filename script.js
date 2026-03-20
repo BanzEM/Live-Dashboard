@@ -4,8 +4,10 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
 
     let output = document.querySelector("#json-output")
     let counter = document.querySelector("#transaction_count")
-    let pendingCount = document.querySelector("#Pending_transaction")
-    let SuccessCount = document.querySelector("#Successful_transactions")
+    let myInput = document.querySelector("#search").value
+
+    // let pendingCount = document.querySelector("#Pending_transaction")
+    // let SuccessCount = document.querySelector("#Successful_transactions")
 
     let data = "";
 
@@ -28,7 +30,6 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
                 </td>
             </tr>
             `;
-
             if(product.status == "Pending"){
                 pending_transactions ++
             }
@@ -67,6 +68,30 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
         
         }
 
+        function searchForm(){
+
+            for(let transactionId of transactions){
+
+                if(transactionId.id == myInput){
+                 html +=  `   
+            <tr>
+                <td class="py-1 px-4">${transactionId.id}</td>
+                <td class="py-1 px-4">${transactionId.transaction}</td>
+                <td class="py-1 px-4">${transactionId.amount}</td>
+                <td class="py-1 px-4">${transactionId.date}</td>
+                <td  class="py-1 px-4">
+                <span class="${transactionId.status == "Success" ? 'text-green-600' : 'text-yellow-500'}"> ${transactionId.status} </span>
+                </td>
+            </tr>
+            `;
+                    
+                }
+                return html
+
+            }
+
+        }
+
         
     let addRowInterval = setInterval(() =>{
         addRow()
@@ -84,6 +109,7 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
 
 output.innerHTML = data;
 counter.innerHTML = transation_count;
+myInput.innerHTML = searchForm;
 // pendingCount.innerHTML = pending_transactions;
 
 })
