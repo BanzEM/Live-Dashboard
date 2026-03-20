@@ -4,11 +4,14 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
 
     let output = document.querySelector("#json-output")
     let counter = document.querySelector("#transaction_count")
+    let pendingCount = document.querySelector("#Pending_transaction")
+    let SuccessCount = document.querySelector("#Successful_transactions")
 
     let data = "";
 
     let i = 0;
     let transation_count = 0;
+    let pending_transactions = 0;
 
     
     for(let product of transactions){
@@ -25,6 +28,10 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
                 </td>
             </tr>
             `;
+
+            if(product.status == "Pending"){
+                pending_transactions ++
+            }
 
             transation_count++ 
             i++
@@ -61,29 +68,28 @@ fetch("https://my-json-server.typicode.com/BanzEm/js-api/transactions")
         }
 
         
-          let addRowInterval = setInterval(() =>{
-                transation_count++
-                counter.innerHTML = transation_count;
-                addRow()
+    let addRowInterval = setInterval(() =>{
+        addRow()
 
-            if(transation_count == transactions.length){
-                clearInterval(addRowInterval);
-            }
-
-            } , 10000);
-
-            
-    
+        transation_count++
+        counter.innerHTML = transation_count;
         
 
-        
+        if(transation_count == transactions.length){
+        clearInterval(addRowInterval);
+    }
+
+} , 10000);
+   
 
 output.innerHTML = data;
 counter.innerHTML = transation_count;
+// pendingCount.innerHTML = pending_transactions;
 
 })
 .catch(error => {
     console.error('Error:', error);
   });
+
 
 
